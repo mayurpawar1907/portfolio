@@ -66,17 +66,20 @@ module.exports = {
         spin: {
           to: { transform: "rotate(360deg)" },
         },
-        // Your existing scroll-left animation
         "scroll-left": {
           "0%": { transform: "translateX(100%)" },
           "100%": { transform: "translateX(-100%)" },
         },
-        // New infinite scroll with 80% scroll then instant jump
         "infinite-scroll-80": {
           "0%": { transform: "translateX(0)" },
           "80%": { transform: "translateX(-80%)" },
           "81%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(0)" },
+        },
+        // ✅ NEW animation for continuous client logo slider
+        slideLeft: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-100%)" },
         },
       },
       animation: {
@@ -86,10 +89,10 @@ module.exports = {
         pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         ping: "ping 1s cubic-bezier(0, 0, 0.2, 1) infinite",
         spin: "spin 1s linear infinite",
-        // Existing scroll-left animation
         "scroll-left": "scroll-left 80s linear infinite",
-        // New infinite-scroll-80 animation, 20s duration
         "infinite-scroll-80": "infinite-scroll-80 20s linear infinite",
+        // ✅ NEW animation name for client logos
+        "slide-left-infinite": "slideLeft 40s linear infinite",
       },
       colors: {
         border: "hsl(var(--border))",

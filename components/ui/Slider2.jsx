@@ -1,6 +1,9 @@
+"use client"
+
 import React, { useEffect } from "react";
 
-const LogoCarousel = ({ items = [], speed = 20 }) => {
+
+const Slider2 = ({ items = [], speed = 20 }) => {
   useEffect(() => {
     const style = document.createElement("style");
     style.innerHTML = `
@@ -28,10 +31,10 @@ const LogoCarousel = ({ items = [], speed = 20 }) => {
 
       @keyframes scroll {
         0% {
-          transform: translateX(0%);
+          transform: translateX(-50%);
         }
         100% {
-          transform: translateX(-50%);
+          transform: translateX(0%);
         }
       }
     `;
@@ -55,4 +58,4 @@ const LogoCarousel = ({ items = [], speed = 20 }) => {
   );
 };
 
-export default LogoCarousel;
+export default Slider2;
