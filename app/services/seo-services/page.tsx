@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
-import Link from "next/link"
+ import { Link } from 'react-router-dom';
+
 import {
   ArrowRight,
   Search,
@@ -85,7 +86,7 @@ function PricingTier({
           )}
         >
           <Link
-            href={`${buttonLink}?service=${encodeURIComponent(title)}&amount=${price.replace(/[^\d]/g, "")}`}
+            to={`${buttonLink}?service=${encodeURIComponent(title)}&amount=${price.replace(/[^\d]/g, "")}`}
             className="flex items-center"
           >
             {buttonText} <ArrowRight className="ml-2 h-4 w-4" />
@@ -147,7 +148,7 @@ export default function SEOServicesPage() {
                     size="lg"
                     className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 text-white border-0 shadow-md shadow-purple-500/20"
                   >
-                    <Link href="#pricing">
+                    <Link to="#pricing">
                       View Pricing <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
@@ -157,7 +158,7 @@ export default function SEOServicesPage() {
                     size="lg"
                     className="bg-transparent text-white border-white hover:bg-white/10"
                   >
-                    <Link href="/contact">Free SEO Audit</Link>
+                    <Link to="/contact">Free SEO Audit</Link>
                   </Button>
                 </div>
               </div>
@@ -215,7 +216,7 @@ export default function SEOServicesPage() {
 
             <ScrollAnimation type="fade-up" delay={300}>
               <ServiceFeature
-                icon={<Link className="h-8 w-8 text-purple-400" />}
+            icon={<Link to="/somepath" className="h-8 w-8 text-purple-400">🔗</Link>}
                 title="Off-Page SEO & Link Building"
                 description="Strategic acquisition of high-quality backlinks to boost your website's authority and credibility."
               />
@@ -661,7 +662,7 @@ export default function SEOServicesPage() {
                   size="lg"
                   className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 text-white border-0 shadow-md shadow-purple-500/20"
                 >
-                  <Link href="/contact">
+                  <Link to="/contact">
                     Get Free SEO Audit <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
@@ -671,7 +672,7 @@ export default function SEOServicesPage() {
                   size="lg"
                   className="bg-transparent text-white border-white hover:bg-white/10"
                 >
-                  <Link href="/services">Explore Other Services</Link>
+                  <Link to="/services">Explore Other Services</Link>
                 </Button>
               </div>
             </ScrollAnimation>

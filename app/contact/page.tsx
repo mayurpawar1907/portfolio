@@ -2,7 +2,13 @@ import type { Metadata } from "next"
 import { MapPin, Phone, Mail, Clock } from "lucide-react"
 import ContactForm from "@/components/contact-form"
 import { GravitationalText } from "@/components/gravitational-text"
-import AnimatedCard, { AnimatedCardContent } from "@/components/animated_card"
+import AnimatedCard, {
+  AnimatedCardContent,
+  AnimatedCardHeader,
+  AnimatedCardFooter,
+} from "@/components/animated_card";
+
+
 
 export const metadata: Metadata = {
   title: "Contact Us | Grand Brand",

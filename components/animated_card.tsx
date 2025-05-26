@@ -1,4 +1,5 @@
-import React from 'react';
+// components/animated_card.tsx
+import React from "react";
 
 interface Card {
   title: string;
@@ -10,17 +11,19 @@ interface AnimatedCardProps {
   cards?: Card[];
   columns?: string;
   height?: string;
+  children?: React.ReactNode;
+  className?: string;
 }
 
+// ✅ Main AnimatedCard component
 const AnimatedCard: React.FC<AnimatedCardProps> = ({
-  title = 'Image Card Cart',
+  title = "Image Card Cart",
   cards = [],
-  columns = 'grid-cols-2',
-  height = 'h-48',
+  columns = "grid-cols-2",
+  height = "h-48",
 }) => {
   return (
     <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-6 shadow-xl border border-white/10 w-full">
-      
       <div className={`grid ${columns} gap-6`}>
         {cards.map((card, index) => (
           <div
@@ -28,11 +31,11 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({
             className={`relative ${height} rounded-xl overflow-hidden transform hover:scale-105 transition duration-500 shadow-md hover:shadow-2xl group w-full`}
             style={{
               backgroundImage: `url(${card.image})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
+              backgroundSize: "cover",
+              backgroundPosition: "center",
             }}
           >
-            {/* Circular overlay with "Click Me" text */}
+            {/* Hover Circle */}
             <div
               className="absolute top-1/2 left-1/2 w-24 h-24 rounded-full bg-black/50 opacity-0 pointer-events-none
                          transform -translate-x-1/2 -translate-y-1/2
@@ -52,5 +55,27 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({
     </div>
   );
 };
+
+// ✅ Named exports for internal card sections
+export const AnimatedCardContent: React.FC<{
+  children: React.ReactNode;
+  className?: string;
+}> = ({ children, className }) => (
+  <div className={`p-4 ${className || ""}`}>{children}</div>
+);
+
+export const AnimatedCardHeader: React.FC<{
+  children: React.ReactNode;
+  className?: string;
+}> = ({ children, className }) => (
+  <div className={`px-4 pt-4 ${className || ""}`}>{children}</div>
+);
+
+export const AnimatedCardFooter: React.FC<{
+  children: React.ReactNode;
+  className?: string;
+}> = ({ children, className }) => (
+  <div className={`px-4 pb-4 ${className || ""}`}>{children}</div>
+);
 
 export default AnimatedCard;

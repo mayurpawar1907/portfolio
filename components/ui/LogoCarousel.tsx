@@ -1,13 +1,17 @@
 import React, { useEffect } from "react";
 
-const LogoCarousel = ({ items = [], speed = 20 }) => {
+interface LogoCarouselProps {
+  items: string[]; // explicitly define type as an array of strings
+  speed?: number;
+}
+
+const LogoCarousel: React.FC<LogoCarouselProps> = ({ items, speed = 20 }) => {
   useEffect(() => {
     const style = document.createElement("style");
     style.innerHTML = `
       .slider {
         overflow: hidden;
         width: 100%;
-       
         color: #fff;
         padding: 1rem 0;
         white-space: nowrap;
